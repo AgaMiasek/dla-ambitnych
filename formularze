@@ -1,0 +1,189 @@
+1.1. Czym są formularze?
+Strony internetowe od dawna nie są już tworami, których jedynym celem było przekazanie informacji - teraz jedną z ich głównych funkcji jest interakcja z użytkownikiem. Jednym z wielu sposobów na umożliwienie takiej interakcji są formularze. 
+
+Umożliwiają nam przyjęcie danych od użytkownika i przetworzenie ich w dowolny sposób - możemy zapisać go na listę mailową, pokazać mu odpowiednie wyniki wyszukiwania, zarejestrować go - ogranicza nas jedynie wyobraźnia.
+
+Mimo wszystko, formularz to skomplikowana konstrukcja i żeby ją rozgryźć, musimy zacząć od początku - w tym przypadku jest nim tag <input>, który umożliwia użytkownikom wprowadzenie danych do formularza. 
+
+Przykładem użycia takiego elementu jest chociażby pole wyszukiwarki na stronie www.google.com.
+
+2.1. Element <input> - wprowadzenie
+Formularze są obecne wszędzie - ich użycia wymaga każda rejestracja, logowanie czy zamówienie przesyłki. Korzysta z nich prawie każda strona, ale jak to działa?
+
+Głównym tagiem formularzy jest <input> służący do wprowadzania informacji, jest niezwykle wszechstronny - zależnie od określonego typu może pełnić rolę pola pojedynczego wyboru (radio), pola wielokrotnego wyboru (checkbox) , suwaka do wyboru wartości z zakresu (range) lub wiele innych. 
+
+Jakim cudem jeden element może mieć tak wszechstronne zastosowanie? Tag <input> wykorzystuje atrybut type, który determinuje jego typ i nadaje mu określone właściwości - dzięki temu nie musimy wykorzystywać innego taga do każdego typu <input>, co pozwala nam zachować czysty i czytelny kod.
+
+Pozostałymi atrybutami dla elementów formularzy zajmiemy się w dalszej części tego kursu.
+
+2.2. Element <input> - atrybut typu
+Wiesz już, że element <input> umożliwia użytkownikowi wprowadzanie danych. Pojawia się jednak mały problem - dane mogą mieć różne postaci, a nie chcemy za każdym razem wpisywać wszystkiego w formie tekstowej - czasami przydałyby się udogodnienia do wprowadzania liczb lub dat, ale jak pomieścić te wszystkie możliwości w jednym elemencie HTML?
+
+Tutaj z pomocą przychodzi nam atrybut type dla <input>, który będzie głównym tematem kilku kolejnych ćwiczeń - określa on sposób w jaki nasze pola mają się zachowywać, wyglądać oraz przyjmować dane.
+
+Domyślnie, atrybut type przyjmuje wartość text, która oznacza po prostu zwykłe pole tekstowe - przykładowym zastosowaniem dla takiego pola jest przyjmowanie imienia czy nazwiska użytkownika.
+
+2.3. Typ radio - pole jednokrotnego wyboru
+Ustaliliśmy już, że elementy <input> przyjmują dane w różnych formach - teraz Ci to udowodnię! :) 
+
+Zaczniemy od typu radio, który oznacza pole jednokrotnego wyboru. Aby ten typ <input> zadziałał poprawnie, musimy nadać również atrybut name z nazwą tego pola oraz atrybut value z wartością danego wyboru.
+
+Atrybut name jest konieczny, aby przeglądarka wiedziała do którego 'pytania' odnosi się dany <input> - możemy przecież mieć w formularzu kilka miejsc w których umieścimy pola jednokrotnego wyboru, a trzeba je od siebie odróżnić. Atrybut value odpowiada po prostu za wartość dla konkretnego wyboru.
+
+2.4. Typ checkbox - pole wielokrotnego wyboru
+Poznamy teraz nowy typ <input>, który w przeciwieństwie do radio umożliwia wybranie kilku opcji jednocześnie - checkbox.
+
+Checkbox pozwala też nie wybrać żadnej z dostępnych opcji - w przypadku typu radio, nie możemy "odznaczyć" wybranego pola - możemy tylko zmienić wybór na inny.
+
+Zasady tworzenia są identyczne jak w przypadku  radio - potrzebujemy atrybutu name, żeby widzieć do czego odnosi się dany <input>, odpowiedniego atrybutu type oraz value, w którym podamy odpowiednią wartość dla danego elementu <input>.
+
+Jednym z najbardziej popularnych zastosowań tego typu <input> jest pole oznaczające akceptację regulaminu.
+2.5. Typ password - pole dla haseł
+Przejdźmy do typów tekstowych - poznaliśmy już podstawowy typ text, pora na te bardziej rozbudowane.
+
+Zaczniemy od typu password, który pozwala użytkownikowi wpisać hasło w naszym formularzu. W tym przypadku nie musimy dodawać już atrybutów name oraz value - po prostu nie będą nam potrzebne.
+
+<input> typu password charakteryzuje się tym, że zmienia wpisywane znaki w gwiazdki, dzięki czemu osoby patrzące na nasz ekran nie będą widziały hasła, które wpisujemy.
+2.6. Typ email - pole adresu mailowego
+<input> typu email jest rozszerzeniem typu text, które ma jedną, przydatną funkcję - automatycznie sprawdza czy podany adres email jest prawidłowy w momencie, kiedy chcemy wysłać formularz.
+
+Jeśli podany email jest błędny (czyli np. brakuje w nim znaku @), to przeglądarka sygnalizuje nam to poprzez pokazanie przy danym polu małej ramki z wytłumaczeniem dlaczego podany adres nie został zaakceptowany.
+
+Taka wbudowana w przeglądarkę walidacja jest bardzo przydatna, ponieważ ułatwia nam pracę - dzięki temu możemy skupić się na reszcie zawartości strony.
+
+2.7. Typ number - pole do wprowadzania liczb
+<input> typu number jest nieco charakterystyczny ze względu na to, że zamiast wartości tekstowej przyjmuje liczby.
+
+Dostosowanie tego typu <input> polega na tym, że zawiera on strzałki, którymi możemy zwiększać oraz zmniejszać podaną przez nas liczbę - możemy to również robić za pomocą strzałek na klawiaturze.
+
+Do tej pory poznaliśmy tylko jedno pole z ograniczeniami dla wprowadzanych do niego danych - był to typ email, który wymagał wprowadzenia poprawnego adresu, aby formularz mógł zostać wysłany. Typ number również wprowadza pewno ograniczenie - nie pozwala, aby użytkownik wprowadził do niego znaki inne niż cyfry.
+
+Warto wiedzieć, że domyślnie typ number przyjmuje wszystkie liczby całkowite - w dalszej części tego kursu poznamy sposób, dzięki któremu będziemy mogli sami ustalić jakie liczby będzie przyjmował.
+
+2.8. Typ range - suwak do wprowadzania liczb
+W poprzednim ćwiczeniu poznaliśmy typ number - teraz zajmiemy się analogicznym typem range.
+
+Główną różnicą pomiędzy number a range jest to, że ten drugi typ pokazuje się na stronie w formie "suwaka", który możemy przeciągać aby wybrać odpowiednią wartość. 
+
+Kolejną różnicą jest to, że typ number domyślnie nie ma ograniczeń odnośnie wprowadzanych liczb - przyjmuje wszystkie wartości całkowite, natomiast typ range domyślnie przyjmuje zakres od 0 do 100 - w dalszej części tego kursu dowiemy się jak zmieniać ten zakres.
+
+2.9. Typy <input> do podawania daty
+Pora na coś nieco innego - tym razem zajmiemy się typem date, który umożliwia nam podanie daty w wygodny sposób - poprzez tzw. datepicker, czyli okienko przypominające kalendarz.
+
+Podobnie jak w przypadku typu number, to pole umożliwia nam wprowadzanie danych na kilka sposobów - możemy sami wpisać odpowiednie dane, skorzystać ze strzałek zmieniających wartość danego pola, użyć strzałek na klawiaturze lub po prostu wykorzystać wspomniany przeze mnie wcześniej datepicker.
+
+Warto wspomnieć również o typach week oraz month, które umożliwiają wybieranie odpowiednio tygodni roku oraz miesięcy (razem z rokiem).
+
+Uwaga: Zanim przejdziesz do wykonywania tego ćwiczenia, musisz wiedzieć, że te typy <input> nie są wspierane w przeglądarce Firefox - aby zobaczyć prawidłowy efekt, skorzystaj z przeglądarki Google Chrome.
+
+2.10. Typy <input> do kontrolowania formularza
+Do tej pory tylko mówiliśmy sobie o wysyłaniu formularza - pora poznać typ pola, który pozwoli nam to zrobić.
+
+Do tego celu wykorzystamy typ submit, który sygnalizuje przeglądarce, że zamierzamy wysłać zawartość pól z naszego formularza. Ciekawostką jest to, że oprócz zwykłego <input type="submit">, możemy użyć również przycisku  <button type="submit"></button>, który ma takie samo działanie, ale pozwala na umieszczenie kodu HTML w środku.
+
+Warto znać również typ reset, który usuwa wszystkie dane wprowadzone w formularzu - podobnie jak submit, możemy nadać go na tag <input> lub <button>.
+
+3.1. <form> - podstawowy kontener formularzy HTML
+<form> jest jednym z dwóch podstawowych elementów formularzy w HTML, które nauczysz się wykorzystywać w tym kursie.
+
+Główną funkcją tego elementu jest grupowanie elementów tak by tworzyły formularz oraz oddzielanie różnych formularzy od siebie - dzięki temu możemy tworzyć pola o takich samych nazwach bez konfliktów między nimi, co pozwala nam na wygodniejsze zarządzanie polami, do których użytkownik strony wprowadza dane. 
+
+W dalszej części tego kursu nauczymy się jak wykorzystywać ten element i sterować jego zachowaniem za pomocą innych tagów.
+3.2. <fieldset> - element grupujący <input> wewnątrz formularza
+Element <fieldset> jest używany do dzielenia elementów <input> na grupy wewnątrz <form> - nie jest wymagany, ale często pomaga stworzyć bardziej przejrzyste formularze - wynika to z tego, że element <fieldset> tworzy ramkę wokół elementów które obejmuje.
+
+Dodatkową cechą elementu <fieldset> jest to, że ramce, którą tworzy, możemy nadać nagłówek - aby osiągnąć taki efekt, wystarczy umieścić tag <legend> z odpowiednim napisem wewnątrz wybranego <fieldset>.
+
+3.3. <select> - rozwijane listy z opcjami do wyboru
+Element <select> odpowiada za tworzenie rozwijanych list z opcjami do wyboru, które wprowadzamy za pomocą elementu <option>. Każda opcja musi mieć atrybut value, by móc przekazywać wybraną wartość do formularza. Dodajemy także tekst w środku taga <option>, aby użytkownik widział, którą opcję wybiera.
+
+Układ tych elementów w kodzie wygląda dokładnie tak samo jak zagnieżdżanie <li> w listach <ul> lub <ol>.
+
+W przypadku długich list rozwijanych, warto wprowadzić podział elementów <option> za pomocą tagów <optgroup>, które wykorzystujemy do grupowania opcji w listach rozwijanych. Aby nazwać określoną grupę opcji, wystarczy użyć atrybutu label z odpowiednią nazwą.
+3.4. <textarea> - element pobierający tekst.
+Poznaliśmy już podstawowy element formularza, który pobiera tekst - <input type="text"> - główna różnica pomiędzy tym tagiem a <textarea> polega na tym, że <input> nie jest przystosowany do przyjmowania szczególnie długiego tekstu, który może zająć nawet kilka linii - do tego wykorzystujemy element <textarea>, który jest o wiele lepszym rozwiązaniem dla długich wpisów, ponieważ użytkownik może zmieniać jego rozmiar rozciągając go, przez co pisanie staje się wygodniejsze.
+
+Inną rzeczą, która odróżnia <textarea> od <input> są również atrybuty, które przyjmuje - <input> jest pod tym względem znacznie bardziej rozbudowany i obsługuje ich o wiele więcej, chociaż <textarea> też zasługuje na małe wyróżnienie ze względu na swoje atrybuty rows i cols, które oznaczają odpowiednio ilość rzędów (linii) w polu oraz ilość kolumn, które odpowiadają szerokości jednego znaku.
+
+3.5. <label> - etykieta dla elementów <input>.
+Na początku tego kursu wspomnieliśmy o elemencie <label>, który stanowi etykietę dla elementów formularza - jak to właściwie działa?
+
+Tag <label> przekierowuje kliknięcia z siebie na checkboxy, elementy radio i inne typy <input>, dzięki czemu możemy zaznaczać wartości w <input> bez klikania bezpośrednio na niego - taka funkcja jest często wykorzystywana przy tworzeniu własnych przycisków za pomocą HTML i CSS, które mają pełnić określoną funkcję na stronie, czym zajmiemy się już niedługo.
+
+Aby użyć taga etykiety, musimy nadać elementom którymi chcemy sterować id, a później dodać je w atrybucie for dla elementu <label>. 
+
+Po dodaniu odpowiedniego fragmentu kodu, przetestuj swoje <label klikając na teksty I'm fine. i Not well. :)
+3.6. <datalist> - lista sugestii dla <input>
+Na stronach internetowych często pojawiają się <input> pozwalające na wpisanie tekstu, które jednocześnie proponują użytkownikowi gotowe rozwiązania - do takiego użytku przeznaczony jest element <datalist>. 
+
+<datalist> ma strukturę dokładnie taką jak <select> - w środku elementu umieszczamy kolejne tagi <option> z odpowiednimi atrybutami value. 
+
+W samym tagu <datalist> musimy też umieścić atrybut id, a w <input> do którego chcemy podpiąć naszą listę z sugestiami trzeba dodać atrybut list, którego wartością jest id listy z sugestiami.
+4.1. Zarządzanie elementami <input> poprzez atrybuty HTML.
+W tym kursie poznaliśmy już kilka atrybutów takich jak value, czy name, od dawna znasz też class oraz id - pora poszerzyć naszą wiedzę na ten temat.
+
+Podstawowymi atrybutami dla tagów <input> są required, który wymusza na użytkowniku wypełnienie danego pola przed wysłaniem formularza, value określające jakie dane mają zostać przesłane i name oznaczające nazwę pola - są one często wymagane do prawidłowego działania strony.
+
+Oprócz najważniejszych atrybutów przydadzą Ci się również te rzadziej używane, takie jak disabled, który wyłącza dany <input> lub hidden ukrywający element do którego się odnosi. Powyższe atrybuty można zastosować do wszystkich typów elementu <input>.
+
+4.2. Placeholder - atrybut wskazówki.
+Jednym z niezwykle przydatnych atrybutów dla elementów wprowadzania tekstu lub liczb jest placeholder, który wyświetla w <input> lub <textarea> tekst, który znika kiedy użytkownik zaczyna wprowadzać dane.
+
+Taka wskazówka służy do wypełnienia pustego miejsca w polach oraz do pokazania użytkownikowi strony jakiego typu odpowiedzi od niego oczekujemy.
+
+W dalszej części kursu dowiemy się jak stylować nasze placeholdery.
+4.3. Min, max oraz step - ograniczenia dla liczb w inputach.
+Atrybuty min oraz max pozwalają nam na ograniczenie odpowiednio minimalnej oraz maksymalnej wartości jaką użytkownik może wprowadzić do pola.
+min oraz max możemy wykorzystać przy wszelkich typach <input>, które przyjmują wartości liczbowe - należą do nich typy od dat, range oraz number.
+
+step jest atrybutem dostępnym dla tych samych typów co min oraz max - służy on do wyznaczenia odstępów między liczbami wprowadzanymi za pomocą <input>.
+
+Przykładowo, mamy <input> typu range, lecz chcemy, aby przyjmował tylko liczby parzyste od 2 do 20 włącznie - w takim przypadku przypisujemy elementowi <input> określone granice za pomocą min oraz max, a za pomocą step zaznaczamy, że odstęp pomiędzy kolejnymi wartościami, które przyjmuje <input> ma być równy 2.
+
+4.4. Minlength oraz maxlength - atrybuty wyznaczające długość wpisu
+Atrybut maxlength odwołuje się do pól przyjmujących wartości tekstowe. Ogranicza maksymalną długość wprowadzonego tekstu. Po przekroczeniu dopuszczalnej długości tekstu,  maxlength blokuje dalsze wprowadzanie zawartości do pola. 
+
+W przeciwieństwie do innych atrybutów, maxlength nie wyświetla ostrzeżenia w 'chmurce' - po przekroczeniu dopuszczalnej liczby znaków, użytkownik po prostu nie może wpisać więcej danych do pola z tym atrybutem.
+
+Przeciwieństwem maxlength jest atrybut minlength, który oznacza najmniejszą ilość znaków, jaką pozwalamy użytkownikowi wpisać do danego pola. Istotną różnicą jest to, że minlength nie blokuje dostępu do pola, a jedynie nie pozwala na jego wysłanie za pomocą przycisku submit.
+
+5.2. Pseudoklasy :required oraz :optional
+Pseudoklasy :required oraz :optional są powiązane z atrybutem HTML, który poznaliśmy we wcześniejszej części tego kursu - required. 
+
+Jak zapewne pamiętasz, ten atrybut zmusza użytkownika do wypełnienia danego pola - w przeciwnym wypadku, wysłanie formularza jest niemożliwe. Pseudoklasa :required oznacza po prostu elementy, które posiadają ten atrybut.
+W przeciwieństwie do :required, :optional odwołuje się tylko do elementów <input>, których wypełnienie nie jest wymagane.
+
+5.3. Pseudoklasy :placeholder-shown oraz :focus
+Kolejną grupę przydatnych w stylowaniu formularzy pseudoklas stanowią  :placeholder-shown oraz :focus - omawiając je, warto także wspomnieć o pseudoelemencie ::placeholder.
+
+::placeholder służy do skupiania się na samym placeholderze, czyli atrybucie wskazówki dla <input>, który omówiliśmy w poprzedniej części tego kursu. Umożliwia nam to chociażby zmianę jego koloru lub czcionki. 
+
+Nie omawialiśmy jeszcze takiego problemu, ale czasami przeglądarki różnie nazywają elementy HTML - w takich przypadkach musimy użyć tzw. prefixów dla każdej przeglądarki. W tym przypadku musimy w CSS zadeklarować style dla input::placeholder, input:-ms-input-placeholder, input::-moz-placeholder oraz input::-webkit-input-placeholder. Podsumowując, kiedy piszesz style dla pseudoelementu ::placeholder, musisz pisać je też dla wyżej wymienionych pseudoelementów z różnych przeglądarek.
+
+:placeholder-shown to pseudoklasa, która skupia się na każdym elemencie, który w danym momencie wyświetla placeholder. Kiedy placeholder znika wraz z wpisywaniem danych przez użytkownika, style wpisane w tej pseudoklasie również przestają działać.
+
+Warto pamiętać również o pseudoklasie :focus, która skupia się na elemencie, na który ostatnio kliknęliśmy i pozwala nam go stylować.
+
+5.4. Pseudoklasa :valid
+W ćwiczeniu 4.3 stylowaliśmy elementy <input> w zależności od tego, czy są wymagane czy nie, żeby poznać działanie pseudoklas :required i :optional - teraz wybierzemy znacznie lepsze rozwiązanie.
+
+Chcielibyśmy, żeby użytkownik zawsze wypełniał wszystkie pola, więc zamiast stylować je według  :required czy :optional, będziemy przypisywać style w zależności od nowego atrybutu- :valid.
+
+:valid to atrybut, który skupia się na polach, które zostały wypełnione prawidłowo - jest to najprostszy sposób na pokazanie użytkownikowi strony, że dobrze wypełnił dane pole i może przejść do następnego.
+7.1. Przyciski jako przełączniki
+W tym ćwiczeniu umieścimy sobie przycisk wewnątrz tagu <label>. Dzięki sprytnemu wykorzystaniu CSS oraz sprawdzaniu stanu checkboxów możemy zmieniać style innych elementów poprzez kliknięcie w nasz przycisk w <label>.
+
+<input> typu checkbox ma dwa główne stany - aktywny oraz nieaktywny. Aby nadać style zmieniające się w zależności od stanu inputu, wystarczy w CSS ustawić reguły dla elementów znajdujących się po zaznaczonym checkboxie - kiedy strona nie będzie zawierała zaznaczonego checkboxa, style po prostu nie będą działały.
+
+Oczywiście dla najlepszych efektów wizualnych musimy też schować oryginalny checkbox, do którego przekazujemy kliknięcia - możemy to osiągnąć poprzez użycie display: none lub atrybutu hidden. 
+
+Po schowaniu checkboxa musimy zająć się ostatnią rzeczą - nadaniem stylów, które działają tylko w momencie, kiedy checkbox jest aktywny - w tym celu budujemy regułę, która wygląda następująco - #id_checkboxa:checked ~ element_do_stylowania. Aby taka formuła zadziałała, stylowane elementy muszą znajdować się po tagu <input>.
+
+7.2. Taby w menu
+Kolejny przykład na to, że webdevelopera ogranicza jedynie jego wyobraźnia i umiejętności - elementy <input> oraz <label> wykorzystamy do budowy kolejnego ciekawego elementu - tabów przełączających content w naszej ramce.
+
+Tradycyjnie, musimy zacząć od stworzenia tagów <input>. Tym razem musimy pamiętać o dodatkowej rzeczy - typ inputów wykorzystywanych w takim menu to radio - w innym przypadku byłoby możliwe włączenie kilku tabów jednocześnie. Nasze tagi <input> muszą mieć też taką samą wartość atrybutu name, aby radio działały zgodnie ze swoim przeznaczeniem.
+
+Podobnie jak w poprzednim ćwiczeniu z checkboxami, musimy wykorzystać w CSS stany tagów <input>, by stylować nasze elementy w zależności od tego, które radio jest aktywne - używamy do tego konstrukcji #id_inputu:checked ~ element.
+
+
