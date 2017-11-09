@@ -96,6 +96,10 @@ body {
 	text-transform: uppercase;
 	color: #fff;
 }
+section {
+	padding: 50px auto;
+	height: 600px;
+}
 .text {
 	font-size: 14px;
 	color: #67676d;
@@ -132,9 +136,9 @@ body {
 .reasons h2 {
 	color: #fff;
 }
- section .gallery {
-	height: 400px;
-	width: 100%;
+.gallery {
+	height: 600px;
+	width: 83%;
 	position: relative;
 	padding-left: 40px;
 	
@@ -142,24 +146,70 @@ body {
 .gallery > div {
 	color: #fff;	
 	text-align: center;
-
 }
 .gallery .pink {
 	background-color: pink;
 	background-size: contain;
-	height: 200px;
+	height: 300px;
 	
 }
 .gallery .foto {
-	overflow: hidden;
-	height: 200px;
-	z-index: -3;
+	background-image: url(images/foto_1_pr1.jpg);
+	background-size: cover;
+	height: 300px;
+}
+.gallery .foto1 {
+	background-image: url(images/foto_2_pr1.jpg);
+	background-size: cover;
+	height: 300px;
+}
+ .signature {
+	margin-top: 10%;
 }
 .gallery .purple {
 	background-color: purple;
-	height: 200px;
+	height: 300px;
 }
 .gallery .violet {
 	background-color: violet;
-	height: 200px;
+	height: 300px;
+}
+.boxes {
+	background-color: #ccc;
+}
+.boxes .box {
+	height: 300px;
+	width: 500px;
+	margin: 50px auto;
+	padding: 30px;
+}
+.boxes .box:hover {
+	background: #fff;
+}
+.boxes .box:hover .info {
+	background-color: violet;
+}
+.boxes .box .buy {
+	width: auto;
+	height: 50px;
+	border-radius: 5px;
+	background-color: lightgreen;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 16px;
+	letter-spacing: 2px;
+	padding: 5px 10px;
+}
+.boxes .box .info {
+	width: auto;
+	height: 30px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	background-color: #ccc;
+	color: #fff;
+	font-size: 12px;
+	padding: 5px 10px;
+}
+.boxes h3 {
+	font-size: 40px;
 }
