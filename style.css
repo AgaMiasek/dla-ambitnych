@@ -40,6 +40,8 @@ body {
 .col-offset-10 {margin-left: 83.33%;}
 .col-offset-11 {margin-left: 91.66%;}
 
+
+
 .hero {
 	
 	width: 100%;
@@ -86,7 +88,7 @@ body {
 	top: 20%;
 	right: 10%;
 	height:100%;
-	width:40%;
+	width: 40%;
 }
 .hero .vertical {
 	position: absolute;
@@ -96,26 +98,26 @@ body {
 	text-transform: uppercase;
 	color: #fff;
 }
-section {
-	padding: 50px auto;
-	height: 600px;
-}
+
 .text {
 	font-size: 14px;
 	color: #67676d;
-	margin-top: 10px;
-	position: relative;
+	padding: 50px auto;
+	
 }
 .text h2 {
 	color: #000;
 	font-size: 35px;
 	font-weight: 100;
+	margin-top: 50px;
+	padding-left: 20px;
 }
 .text p {
-	padding: 10px;
+	padding: 20px;
 }
 .text h3 {
-	font-size: 13px;
+	font-size: 16px;
+	padding-left: 20px;
 }
 .text .vertical {
 	position: absolute;
@@ -124,6 +126,9 @@ section {
 	transform: rotate(270deg);
 	text-transform: uppercase;
 }
+.details {
+	padding-bottom: 50px;
+}
 .hero-middle {
 	background: url(images/tlo_2_pr1.jpg) no-repeat;
 	background-size: cover;
@@ -131,16 +136,20 @@ section {
 .reasons {
 	background-color: lightgreen;
 	color: #fff;
-	margin-top: -10px;
+	padding-bottom: 50px;
 }
 .reasons h2 {
 	color: #fff;
+}
+.reasons p {
+	padding: auto 20px;
 }
 .gallery {
 	height: 600px;
 	width: 83%;
 	position: relative;
 	padding-left: 40px;
+	margin-bottom: 50px;
 	
 }
 .gallery > div {
@@ -175,16 +184,16 @@ section {
 	height: 300px;
 }
 .boxes {
-	background-color: #ccc;
+	background-color: #e5e6eb;
 }
 .boxes .box {
-	height: 300px;
+	height: 320px;
 	width: 500px;
 	margin: 50px auto;
 	padding: 30px;
 }
 .boxes .box:hover {
-	background: #fff;
+	background-color: #fff;
 }
 .boxes .box:hover .info {
 	background-color: violet;
@@ -212,4 +221,66 @@ section {
 }
 .boxes h3 {
 	font-size: 40px;
+	font-weight: 100;
+	margin: 20px auto;
+}
+.boxes p {
+	color: #67676d;
+}
+.boxes .icons {
+	font-size: 30px;
+	color: #ccc;
+	margin: 10px;
+}
+footer {
+	background-color: #192431;
+	width: 100%;
+	height: 500px;
+	color: #fff;
+	font-size: 14px;
+}
+footer h6 {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+footer ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+footer p {
+	padding-right: 30px;
+}
+footer input[type="email"] {
+	width: 70%;
+	height: 60px;
+	padding-left: 20px;
+	float: left;
+	border: none;
+
+
+}
+footer button {
+	width: 62px;
+	height: 62px;
+	background: lightgreen;
+	border: 1px solid lightgreen;
+	margin: 0;
+	color: #fff;
+	font-size: 25px;
+}
+
+footer label {
+	display: block;
+	margin-top: 15px;
+	font-size: 13px;
+	opacity: 0.5;
+
+}
+footer form {
+	margin-left: 50px;
+}
+@media (max-width: 450px) {
+
+	
 }

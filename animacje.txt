@@ -1,0 +1,498 @@
+2.1. Co zmieni przejście - transition-property
+W tej części kursu nauczymy się korzystać z przejść (ang. transition) - jest to prosty sposób na animowanie zmian w różnych właściwościach CSS.
+
+Zacznijmy od transition-property. Jest to podstawowa właściwość przejść określająca, które ze zmienionych wartości CSS mają być animowane.
+
+Idealny przykład działania możemy zobaczyć w oknie podglądu. Jeśli ustalamy kilka właściwości w naszym elemencie i chcemy, aby wszystkie z nich zostały zmienione w trakcie transformacji, możemy pominąć właściwość transition-property.
+
+Jeśli jednak chcemy, żeby tylko wybrane właściwości podlegały zmianie, to musimy dodać je jako wartości dla transition-property (wartości oddzielamy przecinkami) np:
+
+transition-property: width, height.
+
+Zanim jednak zobaczymy płynny efekt naszego przejścia, musimy poznać jeszcze jedną właściwość - transition-duration, o której powiemy sobie w następnym ćwiczeniu :)
+
+ 2.2. Czas trwania przejść - transition-duration
+W poprzednim ćwiczeniu poznaliśmy transition-property - teraz weźmy pod lupę transition-duration. Wartość podana dla tej właściwości to po prostu czas, w jakim ma odbyć się cała przemiana.
+
+Czas ten najczęściej określamy w sekundach, więc jeśli określimy transition-duration: 0.5s to przemiana wykona się w pół sekundy. Możemy także użyć milisekund (i tu, zamiast 0.5s napisalibyśmy 500ms).
+ 
+2.3. Tempo przejścia czyli transition-timing-function
+Kolejną ciekawą właściwością, o której należy wspomnieć, jest transition-timing-function. Jej zadaniem jest określenie szybkości zachodzenia zmian na danych etapach (np. start, środek i koniec). Właściwość ta nie wpływa w żaden sposób na długość wykonywania przemian (transition-duration).
+
+Przejdźmy więc do dokładniejszego poznania właściwości. Domyślną jej wartością jest ease (szybki start i zakończenie z powolnym środkiem), pozostałe popularne właściwości to:
+linear (stałe tempo)
+ease-in-out (powolny start i koniec)
+cubic-bezier(x,x,x,x)(gdzie x to liczba od 0 do 1) (dowolnie stworzona przez nas funkcja - ta wartość nie jest tak często używana, ale dobrze wiedzieć, że mamy taką możliwość).
+
+2.4. Opóźnienie przejścia - transition-delay
+Ostatnią właściwością dotyczącą przejść, którą poznamy, będzie transition-delay.
+
+Jak sama nazwa wskazuje, jest to opóźnienie zachodzenia przemian. Dodatkowo istotne jest, że czas opóźnienia transformacji nie wpływa w żaden sposób na długość jej samej.
+
+Jednostki, jakie używamy do określania transition-delay to sekundy, więc przykładowe:  transition-delay: 3s opóźni start wykonania przemiany o 3 sekundy.
+
+2.5. Wszystko w jednym - transition
+Wiesz już jakie istnieją właściwości związane z przemianami, więc spróbujmy je teraz zgrupować za pomocą jednej właściwości transition.
+
+Do podstawowego działania właściwości potrzebujemy: transition-property oraz transition-duration, więc zbierając wszystko w jednej właściwości otrzymamy: 
+transition: all 1s;
+
+Bardziej złożona właściwość mogłaby wyglądać następująco:
+transition: all 1s linear 2s 
+
+Podczas tworzenia takich właściwości musimy przyjąć następujący wzorzec:
+transition: property duration timing-function delay
+
+Pójdźmy krok dalej i stwórzmy jeszcze bardziej rozbudowaną właściwość:
+margin-left 1s, color 1.5s, width 2s 
+
+2.6. Button z efektami specjalnymi
+Skoro poznaliśmy już podstawy właściwości przemian CSS, możemy przejść do praktyki. 
+
+Zaczniemy powoli i wraz z postępami w kursie, będziemy tworzyć coraz bardziej zaawansowane animacje i transformacje.
+
+Na początek zajmiemy się nadaniem elementowi button unikalnego efektu po najechaniu kursorem po czym określimy, które właściwości mają się zmieniać i w jakim tempie.
+
+3.1. translate()
+Skoro znasz już podstawy przejść w CSS, pora na poznanie właściwości, które można z nimi połączyć.
+
+Zaczniemy od omówienia wartości właściwości transform o wdzięcznej nazwie translate().
+
+translate(x,y) służy przemieszczeniu elementu zgodnie z podanymi parametrami w nawiasie (x - dla osi X, poziomej oraz y - dla osi Y, pionowej).
+
+Dla przykładu powiedzmy, że chcemy przemieścić element o 100px w prawo i o 100px w dół - nasz kod mógłby wyglądać następująco:
+transform: translate(100px, 100px)
+
+Pamiętaj, że wartości ujemne na osi X przemieszczą element w lewo, a wartości ujemne na osi Y do góry.
+
+3.2. rotate()
+Kolejną wartością właściwości transform, którą poznamy będzie rotate.
+
+Jak pewnie domyślasz się, powoduje ona obrót elementu o ilość stopni podaną w parametrze.
+
+Budowa tej wartości wygląda następująco: transform: rotate(Xdeg) (gdzie X to liczba stopni o które obracamy element, a deg, to skrót od angielskiego degree, czyli stopień).
+
+Przykładowa właściwość może wyglądać następująco:
+transform: rotate(90deg)
+Obróci ona obiekt o 90 stopni w kierunku ruchu wskazówek zegara. 
+
+Dopuszczalnymi liczbami są również liczby ujemne np:
+transform: rotate(-45deg)
+Tak zbudowana właściwość obróci element o 45 stopni w kierunku przeciwnym do ruchu wskazówek zegara.
+
+3.3. scale()
+Skoro wiesz już jak przemieszczać i obracać obiekty, przejdźmy do skalowania ich.
+
+W tym celu użyjemy właściwości transform: scale(x) (gdzie x to liczba nieujemna).
+
+Załóżmy, że chcemy powiększyć nasz element ponad dwukrotnie, więc użyjemy właściwości:
+transform: scale(2.5)
+
+Ważną informacją jest, że jeśli skalujesz obiekt w dół (powiedzmy, że chcesz zmniejszyć go o połowę), to warto wiedzieć, że mimo iż zmniejszy się do oczekiwanego rozmiaru, to będzie zabierał tyle samo miejsca (pozostanie wokół niego pusta przestrzeń, której nie zajmą inne elementy).
+
+3.4. skewX()
+skewX() przekrzywia element wzdłuż osi X (poziomej). 
+
+Tak samo jak i podczas nadawania rotacji, element przekrzywiamy używając stopni.
+
+Przykładowo chcąc przekrzywić element o 20 stopni wzdłuż osi X użyjemy następującej właściwości:
+transform: skewX(20deg)
+
+3.5. skewY()
+skewY jest bratnią właściwością dla skewX. I jakżeby inaczej - przekrzywia ona obiekt, ale w tym przypadku wzdłuż osi Y.
+
+I jak już wiemy - jednostki jakich używamy do określenia przekrzywienia to stopnie (deg).
+
+Aby w lekcji stało się zadość, przejdźmy do przykładu:
+transform: skewY(50deg)
+Tak zbudowana właściwość przekrzywi element o 50 stopni wzdłuź osi Y.
+
+3.6. matrix()
+matrix() łączy wszystkie pozostałe właściwości w jedną, nieco bardziej złożoną.
+
+Struktura właściwości wygląda następująco:
+
+matrix(scaleX, skewY, skewX, scaleY, translateX, translateY)
+
+Powiedzmy więc, że chcemy nadać elementowi następujące właściwości:
+lekko przekrzywić element względem osi X i osi Y
+przesunąć element o 30px po osi X
+oraz przesunąć element o 10px po osi Y
+Moglibyśmy zrobić to przy użyciu czterech właściwości, lub jednej. 
+Po co więc utrudniać sobie życie jeśli oczekiwany efekt osiągniemy dzięki:
+
+matrix(1, 0.03, 0.03, 1, 30, 10)
+
+
+3.7. transform-origin
+Jak zapewne zauważyliście, wszystkie transformacje zachodzą względem środka obiektu. 
+
+Dzieje sie tak, ponieważ jego "punkt źródłowy" (czyli domyślna wartość transform-origin) znajduje się w miejscu o współrzędnych 50% 50%.
+
+Na położenie tego punktu składają się dwie wartości (możliwe trzy, ale o tym powiemy w transformacjach 3D)- wartość osi X oraz wartość osi Y.
+
+Współrzędna dla osi X może przyjmować następujące wartości: 
+left
+center
+right
+%
+
+Współrzędna dla osi Y może przyjmować następujące wartości: 
+top
+center
+bottom
+%
+
+Brzmi trochę zagmatwanie? Spokojnie zobacz jak może wyglądać przykładowy kod:
+transform-origin: 50% 0%
+
+W ten sposób przemieściliśmy punkt źródłowy elementu do połowy szerokości jego górnej krawędzi.
+
+4.1. perspective
+Na sam początek należy nadmienić jak sprawić by transformacje 3D były możliwe, wymagana jest perspektywa.
+
+Nadać ją możemy poprzez dwie właściwości CSS.
+
+Pierwszą jest transform: perspective.
+
+Nadaje ona wybranemu elementowi "głębię", która służy za perspektywę.
+
+Kolejna właściwość to: perspective: Xpx (gdzie X to liczba) nadawana jest elementowi rodzica i dotyczy także elementów w nim zawartych.
+
+Jednostki używane do określania tych właściwościach to pixele (px).
+
+Im większa wartość tym wrażenie perspektywy zmniejsza się, a element "oddala" się od nas.
+
+4.2. translate3d()
+translate3d(x,y,z) definiuje przemieszczenie obiektu w trójwymiarowej przestrzeni. Dwie pierwsze wartości określają przemieszczenie w osi X (pozioma) oraz osi Y (pionowa), trzecia w osi Z.
+
+Przykładowo właściwość może wyglądać następująco:
+transform: translate3d(10%, 10%, 200px)
+
+Efektem będzie przesunięcie obiektu o 10% na osi Y, 10% na osi X oraz 200px na osi Z. (Jednostki używane dla przemieszczenia na osi Z mogą być tylko wartościami w pixelach).
+
+4.3. scale3d()
+scale3d(x,y,z) jest kolejną właściwością o podobnym działaniu do swojej poprzedniczki działającej w przestrzeni dwuwymiarowej.
+
+W tym wypadku skalujemy elementy w trzech wymiarach.
+
+Właściwość scale3d(x, y, z) skaluje element kolejno:
+
+x w osi X
+y w osi Y
+z w osi Z 
+
+Właściwość przyjmuje liczby z zakresu od 0 do nieskończoności.
+W przypadku liczb mniejszych niż 1 element zostanie zmniejszony. Jeśli liczba będzie zerem to element zniknie, a w przypadku liczb dodatnich większych niż 1 zostanie powiększony.
+
+Teoretycznie właściwość przyjmuje również liczby ujemnie, ale element nie zostanie wtedy skalowany.
+
+4.4. rotate3d()
+rotate 3d() to właściwość, którą zdecydowanie polubicie. Przy jej pomocy obrócicie element względem trzech osi jednocześnie.
+
+Budowa właściwości wygląda następująco:
+transform:  rotate3d(x, y, z, deg)
+
+Gdzie kolejne wartości oznaczają:
+x - pozycję wektora x
+y - pozycję wektora y
+z - pozycję wektora z
+deg - wielkość rotacji w stopniach (możliwe wartości ujemne, wtedy element obraca się w kierunku przeciwnym do ruchu wskazówek zegara)
+
+Jeśli więc przestrzeń między wektorami będzie taka sama niezależnie od wartości (np wszystkie wektory mają wartość 5, lub wszystkie mają wartość 100) animacja wyświetli się tak samo.
+
+Dysproporcja wartości poszczególnych wektorów wpłynie w najwidoczniejszym stopniu na różnice w rotacji.
+
+Przykładowa właściwość może wyglądać następująco:
+transform: rotate3d(1,2,1, 180deg)
+
+4.5. backface-visibility
+backface-visiblity to właściwość ukrywająca zawartość elementu w momencie gdy możemy zobaczyć jego tylną ściankę.
+
+backface-visibility posiada tylko dwie właściwości:
+visible (tył elementu jest widoczny)
+hidden (tył elementu zostaje ukryty a element staje się czarny)
+
+Przykładowo więc właściwość może wyglądać następująco:
+backface-visibility: hidden
+
+5.1. Podstawy keyframes
+Lekcje o animacjach CSS najlepiej zacznijmy od samych podstaw. Niewątpliwie podstawą są wymagane właściwości, które pozwolą nam wprawić w ruch animację, jak i sama jej budowa. 
+
+Deklarację animacji zaczynamy od @keyframes po czym dodajemy jej nazwę i otwieramy nawiasy. 
+
+Przykładowo: 
+@keyframes mojaAnimacja {...} 
+
+Wewnątrz takiej deklaracji umieszczamy słowa kluczowe (ang, keywords), które pełnią rolę kroków. Możliwe keywords to: from oraz to oznaczające następująco: od, do (start i koniec animacji).
+
+Możliwe keywords to również procenty. Przykład takiej konstrukcji możesz znaleźć w pliku style.css i podglądzie. 
+
+Przykład dla animacji używającej from to, która będzie przemieszczała element z lewej do prawej (tylko o 200px) może wyglądać następująco:
+@keyframes animacja { 
+   from {left: 0}
+   to {left: 200px}
+}
+5.2. name, duration - budowa właściwości
+Skoro już znasz podstawy budowania reguły keyframes, możemy przejść do poznania budowy właściwości animation - jest ona niezbędna do wprawienia animacji w ruch. 
+
+animation wymaga dwóch właściwości, aby zadziałać. Pierwszą jest nazwa animacji, a drugą czas jej wykonania. Oczywiście możemy dopisywać do niej inne wartości, które odpowiadają za np. ilość powtórzeń, ale o tym opowiemy sobie później :)
+
+Przykładowa właściwość wygląda następująco:
+animation: mojaAnimacja 1s
+
+animation możemy rozbić na pojedyńcze właściwości: animation-name oraz animation-duration. Jednak pojedyncza właściwość animation zaoszczędzi nam pisania kodu i zgrupuje potrzebne właściwości, podobnie jak poprzedni "skrót", który poznaliśmy, czyli transition.
+
+5.3. Tempo animacji - animation-timing-function
+Założę się, że pamiętasz lekcję o transition-timing-function. Jeśli tak to pewnie domyślasz się, że działanie omawianej właściwości animation-timing-function jest identyczne. Jeśli jednak zdarzyło Ci się zapomnieć, to szybko Ci przypomnę najważniejsze założenia. 
+
+Właściwość animation-timing-function określa w jakim tempie wykonywać dane etapy animacji (start, środek, koniec), jednak nie wpływa na czas trwania animacji. Możemy przyjąć, że jest to swoista funkcja synchronizacji.
+
+Przykładowe właściwości to:
+ease (wartość domyślna - powolny start, szybki środek i powolny koniec)
+linear (stałe tempo)
+ease-in-out (powolny start i koniec)
+cubic-bezier(x,x,x,x)(gdzie x to liczba od 0 do 1) (dowolnie stworzona przez nas funkcja)
+steps(x) (gdzie x to liczba kroków) (rozbija animację na kroki w podanej ilości)
+
+5.4. Opóźniamy animację - animation-delay
+Podczas tej lekcji poznamy właściwość animation-delay. Tak, masz rację - poznaliśmy już bliźniaczą właściwość podczas lekcji związanej z przejściami. 
+
+W roli szybkiego przypomnienia wspomnę o działaniu tej właściwości (w końcu zawsze lepiej utrwalać nowo poznaną wiedzę).
+
+animation-delay ustala opóźnienie w wykonywaniu animacji i nie wpływa na szybkość jej wykonywania.
+
+Mimo wszystko, jeśli opóźnimy wszystkie animacje o wielokrotność czasu ich wykonania, to po pierwszej pętli nie będzie już widoczna ta różnica w czasie - dlatego warto przynajmniej jedną z animacji opóźnić np. o 1.5 czasu jej wykonywania zamiast o 1 lub 2 czasy wykonywania :)
+
+Przykładowa właściwość opóźniająca wykonanie animacji o jedną sekundę może wyglądać następująco:
+animation-delay: 1s
+
+5.5. Liczymy powtórzenia - animation-iteration-count
+Nic nie może przecież wiecznie trwać...
+
+A może jednak? Sprawdzimy to przy użyciu właściwości animation-iteration-count. Jak nazwa wskazuje właściwość ta określa ilość powtórzeń animacji.
+
+Domyślną wartością animation-iteration-count jest liczba 1. Skoro domyślną wartością jest liczba, to idąc dalej tą logiką możemy wywnioskować, że przykładowa wartość tej właściwości to również po prostu liczba.
+
+Jeśli więc chcemy wykonać animację pięć razy to właściwość będzie wyglądała następująco:
+animation-iteration-count: 5
+
+No dobrze, a co jeśli jednak chcemy, żeby animacja nie zatrzymywała się po określonej ilości powtórzeń? W tym wypadku użyjemy wartości infinite, a właściwość będzie wyglądała następująco:
+animation-iteration-count: infinite
+
+6.1. O filtrach i prefiksach
+Podczas tej lekcji omówimy działanie właściwości filter.
+
+Jej zadaniem jest nadawanie wybranych efektów (określonych jako jej właściwości) elementom.
+
+Przykładowo:
+filter: blur(10px) (nadamy elementowi rozmycie)
+
+Niesamowicie ważną informacją jest to, że do poprawnego działania tej właściwości na różnych przeglądarkach potrzebne będą prefiksy.
+
+Prefiksy to swoiste przedrostki, które dodajemy przed właściwościami dla umożliwienia poprawnego działania na danym typie przeglądarek.
+
+Istniejące prefiksy to:
+-webkit- (Chrome, Opera)
+-moz- (Firefox)
+-o- (starsze wersje Opery)
+-ms- (Internet Explorer)
+
+Dodatkowo warto podkreślić, że tylko niektóre właściwości potrzebują prefiksów (zwykle te nowsze), a przeglądarki wraz z ich rozwojem zaczynają obsługiwać właściwości bez potrzeby dodawania prefiksów.
+
+W naszym wypadku używać będziemy -webkit-, a przykładowa właściwość może wyglądać następująco:
+-webkit-filter: blur(20px)
+
+6.2. blur()
+blur(Xpx)(gdzie X to liczba) nadaje elementowi rozmycie zgodnie z liczbą pixeli podanych w deklaracji.
+
+Jedyną obsługiwaną jednostką są pixele, a im wyższa ich wartość, tym większe rozmycie nadamy elementowi.
+
+Przykładowo, aby nadać duże rozmycie właściwość skonstruujemy następująco:
+filter: blur(15px)
+
+6.3. brightness()
+brightness() odpowiada za rozjaśnianie oraz przyciemnianie elementu.
+
+Właściwość przyjmuje wartości procentowe(%) w przedziale od 0 do nieskończoności (teoretycznie, ponieważ przy większej wartości element stanie się całkowicie biały i nie zajdzie więcej zmian). Przy wartości 0 element będzie całkowicie czarny.
+
+Dla przykładu powiedzmy, że chcemy aby element był lekko przyciemniony, użyjmy więc następującej właściwości:
+filter: brightness(75%)
+
+6.4. contrast()
+contrast() służy do ustawiana kontrastu elementu.
+
+Przyjmowane jednostki to procenty(%) w zakresie od 0 (całkowicie czarny/ szary element) do nieskończoności (znów teoretycznej nieskończoności, ponieważ przy pewnej wartości zmiany przestaną zachodzić).
+
+Więc jeśli chcemy zmienić kontrast w naszym elemencie użyjemy następującej właściwości:
+filter: contrast(250%)
+6.5. grayscale()
+grayscale() odpowiada za nadanie elementowi szarości.
+
+Jednostki jakich używamy do określenia tej właściwości to procenty(%) w zakresie od 0 do 100%. 
+
+Przy wartości 0 obrazek nie zmienia się, a im większa wartość tym bardziej desaturujemy obrazek (pozbywamy się kolorów).
+
+Przykładowo jeśli chcemy aby nasz obrazek był czarno-biały użyjemy następującej właściwości:
+filter: grayscale(100%)
+
+6.6. invert()
+invert() służy do odwracania kolorów.
+
+Właściwość przyjmuje jednostki procentowe(%) w zakresie od 0 do 100%, gdzie zero to brak jakichkolwiek zmian, a 100% to całkowicie odwrócone kolory.
+
+Przykładowa reguła częściowo odwracająca kolory może wyglądać następująco:
+filter: invert(50%)
+
+6.7. saturate()
+saturate() odpowiada za saturację elementu. W roli szybkiego przypomnienia - saturacja to nasycenie kolorem.
+
+saturate() jest kolejną właściwością przyjmującą wartości procentowe(%) w przedziale od 0 do nieskończoności (I tak, zgadłeś... Znów jest to teoretyczna nieskończoność bo przy pewnej wartości element przestanie się zmieniać).
+
+Przy wartości 0 otrzymamy element pozbawiony kolorów. 100% to wartość domyślna, powyżej której zaczniemy nasycać element kolorami. (Właściwość najlepiej funkcjonuje między wartościami 0 - 200%.)
+
+Więc jeśli chcemy nasycić element kolorami możemy użyć następującej właściwości:
+filter: saturate(150%)
+
+6.8. sepia()
+sepia() jest właściwością umożliwiającą nadanie efektu sepii elementowi.
+
+sepia() przyjmuje jednostki procentowe(%) w zakresie od 0 do 100%, gdzie 0 to wartość domyślna, a wartości większe nasilają efekt sepii.
+
+Powiedzmy więc, że chcemy nadać efekt sepii naszemu elementowi, żeby wyglądał starzej. Użyjemy następującej właściwości:
+filter: sepia(100%)
+
+6.9. hue-rotate()
+hue-rotate służy do zmiany kolorów obiektu zgodnie z kołem kolorów.
+
+Właściwość jako swoje jednostki określające przyjmuje stopnie(deg) w zakresie od 0 do 360deg (możemy również używać liczb ujemnych).
+
+0 jest wartością domyślną, a każda inna spowoduje zmiany.
+
+Przykładowa właściwość może wyglądać następująco:
+filter: hue-rotate(180deg)
+
+6.10. Jak używać filtrów
+Skoro znasz już tyle filtrów, pewnie zastanawiasz się jak można efektywnie ich używać.
+
+Zacznijmy od tego, że jak większość właściwości, te związane z filtrami również możemy grupować.
+
+Przykładowo jeśli chcemy nadać efekt sepii i lekko rozmyć element użyjemy następującej właściwości:
+filter: blur(1px) sepia(100%) (nie używamy znaków rozdzielających)
+
+Filtry idealnie nadają się do tworzenia uniwersalnych reguł wielokrotnego użytku.
+
+Powiedzmy, że chcemy nadać kilku elementom dane filtry. Tworzymy więc klasy z samymi właściwościami dla filtrów i nadajemy je wybranym elementom w HTML.
+
+
+7.1. linear-gradient
+linear-gradient() jest jedną z wartości właściwości background.
+
+Do podstawowego działania potrzebuje dwóch wartości: koloru początkowego i koloru finalnego.
+
+Przykładowo:
+background: linear-gradient(red, green)
+
+Nieco bardziej rozbudowana właściwość dzięki której utworzymy trójkolorowy gradient:
+background: linear-gradient(red, green, yellow)
+
+Domyślnie gradient przemieszcza się z góry na dół. Jednak możemy kontrolować ten kierunek. 
+
+Przykładowo:
+background: linear-gradient(left, blue, green) (gradient od lewej do prawej)
+
+background: linear-gradient(bottom right, blue, green) (gradient od prawego dolnego rogu do lewego górnego rogu)
+
+Możemy również używać stopni:
+background: linear-gradient(260deg, green, blue) (gradient z góry na dół)
+background: linear-gradient(190deg, green, blue) (gradient od prawej do lewej)
+
+UWAGA: Dla gradientów również musimy dodawać prefiksy, jednak wystarczy tylko jeden-  -webkit-.
+
+Przykładowa właściwość z prefiksem:
+background: -webkit-linear-gradient(red, blue)
+
+7.2. radial-gradient
+radial-gradient() jest bratnią wartością linear-gradient. Nie są to jednak bracia bliźniacy...
+
+Przy pomocy radial-gradient utworzymy gradient radialny (promieniowy).
+
+Jeśli ciężko ci wyobrazić sobie taki gradient pomyśl o kamieniu rzuconym w wodę i wyobraź sobie jak z jednego punktu rozchodzą się fale (możesz też po prostu zobaczyć w podglądzie).
+
+Do prawidłowego działania potrzebujemy dwóch wartości: koloru początkowego i finalnego. Oczywiście możemy jednak rozbudowywać właściwość np:
+background: radial-gradient(red, blue, green, yellow)
+
+Dodatkowo warto wiedzieć, że kształt naszego gradientu to elipsa, jednak możemy zmienić tę domyślną wartość na okrąg:
+background: radial-gradient(circle, red, blue)
+
+Jeśli tyle możliwości wam nie wystarcza, to zawsze możemy jeszcze zmienić pozycję punktu, z którego "wydobywa" się gradient:
+backgrund: radial-gradient(at x% y%, red, green)
+
+Wartości x% i y% odpowiadają przesunięciu w osi X oraz osi Y. at to słowo kluczowe, oznaczające że kolejne wartości oznaczają miejsce od którego "rozchodzi" się gradient.
+
+Więc jeśli nasza właściwość będzie wyglądała następująco:
+background: radial-gradient(at 100% 100%, red, green)
+Środek gradientu znajdzie się w prawym dolnym rogu. 
+
+
+7.3. repeating-linear-gradient
+repeating-linear-gradient umożliwia nam tworzenie powtarzalnego wzoru przy użyciu gradientu.
+
+repeating-linear-gradient to po prostu "ulepszona" wersja właściwości linear-gradient.
+
+Jako ulepszona wersja daje nam całkiem ciekawe możliwości. Przykładowo:
+background: repeating-linear-gradient(-45deg, green 0, green 5%, yellow 0, yellow 10%)
+
+Utworzy powtarzający się zielono-żółto-niebieski wzór z ostrymi krawędziami i widocznymi granicami między kolorami (sprawdź w podglądzie).
+
+Jeśli jesteś ciekaw w jaki sposób działa ta właściwość przypatrz się uważnie:
+
+-45deg deklaruje kierunek w jakim przemieszcza się gradient
+green 0 ustala rozpoczęcie się zielonego koloru
+green 5% trwającego do 5% szerokości elementu
+yellow 0 zeruje pozycję żółtego paska
+yellow 10% sprawia, że żółta barwa zajmuje miejsce do 10% szerokości elementu
+
+
+
+7.4. repeating-radial-gradient
+repeating-radial-gradient to swoiste rozszerzenie właściwości radial-gradient o możliwość wielokrotnego wykonania gradientu.
+
+Podczas tworzenia właściwości możemy używać poprzednich wartości stosowanych do tworzenia gradientu radialnego, ale dodatkowo deklarujemy rozprzestrzenianie się kolorów.
+
+Jak powinna wyglądać taka właściwość? Tutaj mamy przykład:
+
+background: repeating-radial-gradient(circle, green 10px, yellow 25px, blue 35px)
+
+Zasada działania jest identyczna jak właściwości repeating-linear-gradient.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
