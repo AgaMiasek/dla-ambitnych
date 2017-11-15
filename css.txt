@@ -1,0 +1,303 @@
+1.2. Czcionki systemowe
+W kontekście tekstu najczęściej najpierw ustalamy typ czcionki za pomocą właściwości font-family. Następnie podajemy jej nazwę (rodzinę).
+
+Wybierając daną rodzinę czcionki, musimy założyć, że internauta będzie ją miał wgraną w systemie swojego komputera. Dlatego wybiera się te czcionki, które są zazwyczaj na każdym komputerze. Są to m.in.: Arial, Tahoma, Verdana, Georgia.
+
+Jeśli wybierzemy czcionkę, której użytkownik nie ma na komputerze to strona wyświetli mu się z jego domyślną czcionką, najczęściej jest to "Times New Roman".
+
+PS. Nazwy czcionek składające się z kilku słów podajemy w regule CSS w cudzysłowach (font-family: "Times New Roman";), a te składające się z jednego słowa bez cudzysłowów (font-family: Arial;).
+
+1.3. Podpinanie czcionki
+Systemowe czcionki jednak nie dają dużego wyboru. Czasem chcemy podłączyć czcionkę o naprawdę ładnym kroju. Mamy wtedy wybór, kupić jakąś bądź skorzystać z darmowych źródeł.
+
+Bardzo dobrym źródłem darmowych czcionek jest strona Google Fonts. Można znaleźć tam naprawdę ogromny zbiór: www.google.com/fonts. Znajdziesz tam nie tylko czcionki, ale również instrukcję podpinania ich do swojej strony oraz używania w pliku typu CSS.
+
+Np. można podłączyć zewnętrzną czcionkę poprzez wstawienie w HTML do sekcji 'head' linku <link href='adres czcionki na serwerze' rel='stylesheet' type='text/css'>. Następnie w CSS odnosimy się do niej jak do czcionki systemowej.
+
+Bardzo często używana jest czcionka Open Sans, która obsługuje także polskie znaki (a nie wszystkie takie mają), ale generując link z Google należy zaznaczyć opcję latin-extended.
+
+1.4. Linkowanie do czcionki w CSS
+Jeśli nie chcemy trzymać linku do czcionek w nagłówku pliku HTML, możemy także zrobić to bezpośrednio w pliku CSS.
+
+Robimy to za pomocą zapisu: 
+@import url(link-do-czcionki); Możemy podłączyć w ten sposób wiele innych czcionek i źródeł.
+
+Dzięki powyższemu podejściu zachowujemy podział, że w pliku CSS zamieszczamy zapisy definiujące wygląd strony, a w HTML zostaje sama struktura i treść.
+
+Aby nadać zaimportowaną czcionkę danemu elementowi, wewnątrz wybierającego go selektora korzystamy z właściwości font-family.
+
+1.5. Rodzaje czcionek
+Każda czcionka ma przypisany pewien rodzaj określający jej charakter. Niektóre są bardziej formalne, inne mniej zobowiązujące.
+
+Podstawowe rodzaje czcionek to:
+- szeryfowe (serif) są czcionkami z dodatkowymi elementami ozdobnymi (np. kreseczki na dole i górze dużej litery 'i'), często używane w przypadku stron o charakterze humanistycznym (np. Times),
+- bezszeryfowe (sans serif) są czcionkami bez dodatkowych elementów ozdobnych, najczęściej używane (np. Arial),
+- o stałej szerokości (monospace) są czcionkami, w których każdy znak zajmuje taką samą przestrzeń, używana są do prezentacji kodu (np. Courier),
+- pisanki (handwritting), czcionki imitujące pismo odręczne, spotykany np. na stronach o charakterze humorystycznym (np. Comic Sans).
+
+Tenże rodzaj wstawia się tu font-family: Arial, ...; i mówi on, że jeśli na komputerze nie ma czcionki Arial lub innej wskazanej, to ma załadować inną czcionkę szeryfową z systemu komputera.
+2.1. Interlinia tekstu
+Czasami trudno czytać dużą ilość tekstu i nasze oczy szybko się męczą. Oprócz zwiększenia rozmiaru czcionki, pomóc może zwiększenie przestrzeni między wierszami tekstu. Jest to tzw. interlinia - wysokość wiersza.
+
+Do zwiększania interlinii służy właściwość line-height. Możemy podawać ją m.in. w procentach lub pikselach.
+
+Tekst na stronie ma domyślną wysokość wierszy, którą można zwiększyć lub zmniejszyć
+
+2.2. Nie łam się :)
+Tekst na stronie internetowej jest "łamany" (zawijany) do kolejnych linii, co jest determinowane przez szerokość jego kontenera. Tak tekst zachowuje się domyślnie i jest to naturalne.
+
+Zdarzają się jednak sytuacje kiedy chcemy aby dany fragment tekstu nie był dzielony na dwa lub więcej wierszy. Aby uzyskać taki efekt używamy właściwości white-space (rozumiane jako "spacje") z wartością nowrap (ang. nie zawijać).
+
+2.3. Za długi tekst
+Co jeśli wyłączysz dla danych tekstów ich zawijanie (łamanie), a będą one szersze niż kontener, w którym się znajdują? Będą brzydko wystawać poza ten kontener, co widać w podglądzie.
+
+Jeśli chcielibyśmy, aby kolejne punkty z tekstami się nie łamały (zajmowały jeden wiersz każdy) a jednocześnie nie wystawały z kontenera, możemy użyć właściwości overflow: hidden;. Wystające teksty zostaną przycięte.
+
+Dodatkowo, jeśli dodamy także właściwość text-overflow: ellipsis; to w miejscu przycięcia tekstu zostanie dodany znak "..." (wielokropek). Będzie to sugerować, że tekst jest dłuższy.
+
+PS. Takie podejście jest wykorzystywane np. w skrzynkach mailowych typu gmail, gdzie na ekranie listy maili w danym wierszu mamy początek danej wiadomości, przycięty na końcu wiersza.
+
+2.4. Przestrzeń między literami i słowami
+Co, jeśli chcemy, aby dany tekst był lepiej czytelny np. przez zwiększenie odległości pomiędzy literami danego słowa lub pomiędzy słowami?
+
+Przestrzenią między literami czy wyrazami, możemy manipulować za pomocą właściwości letter-spacing oraz word-spacing. Ich wartości podajemy najczęściej w pikselach.
+2.5. Transformacje tekstu
+Możemy zdecydować, że tekst w danej sekcji czy elemencie ma być pokazywany za pomocą dużych liter, ale nie chcemy tego zmieniać ręcznie w HTML. 
+
+Z pomocą przychodzi nam właściwość text-transform. Nadając tej właściwości np. wartość uppercase sprawiamy, że wszystkie teksty (w elemencie którego dotyczy ten styl) będą wyświetlane przy użyciu dużych liter (pomimo, że w HTML są z małych).
+
+Wartości dla text-transform to:
+- uppercase duże litery,
+- lowercase małe litery,
+- capitalize każda pierwsza litera wyrazu będzie duża, pozostałe będą takie jakie zostały wprowadzone.
+3.1. Grafika w tle
+Dotychczas w tle danego elementu HTML ustawialiśmy pewien kolor. Co, jeśli chcemy, aby tłem była jakaś grafika lub zdjęcie?
+
+Możemy dodać właściwość background-image: url('...'); gdzie w miejscu 3 kropek podajemy ścieżkę do pliku graficznego, który ma być tłem.
+
+PS. Możemy podawać ścieżki względne jeśli plik html jest na tym samym serwerze co grafiki. Można także podawać ścieżki bezwzględne z przedrostkiem "http://".
+
+3.2. Kolor w tle
+Właściwość background-color prawdopodobnie już dobrze znasz. Służy do nadawania koloru dla tła elementu.
+
+Warto wspomnieć, że możemy dla danego tła ustawić jakąś grafikę i dodatkowo kolor. Stanowi to zabezpieczenie: jeśli grafika się nie wgra na stronę, to w tle będzie odpowiedni kolor.
+3.3. Powielanie grafiki tła
+Grafika w tle, jeśli jest mniejsza niż obszar który ma wypełnić, powiela się niczym mozaika, aby pokryć całą powierzchnię elementu HTML.
+
+To, czy grafika tła ma się powielać możemy ustawić za pomocą właściwości background-repeat. Najczęściej przyjmuje ona wartości:
+- repeat - domyślna, grafika powiela się na całe tło,
+- repeat-x - grafika w tle ma się powielać tylko w poprzek,
+- repeat-y - grafika w tle ma się powielać tylko w pionie,
+- no-repeat - grafika ma się w ogóle nie powielać i być wyświetlona w tle tylko 1 raz.
+3.4. Pozycja grafiki tła
+Rozszerz Podgląd na poziomy przyciskiem . Grafika w tle ma wyłączone powielanie się, ale będąc wyrównana do lewej nie wpływa pozytywnie na wygląd.
+
+Czy można określić położenie grafiki w tle w ramach elementu, w którym się znajduje? Tak! Za pomocą background-position, który może przyjmować kombinacje wartości: top, bottom, left, right, center.
+
+Do właściwości może dodać jedną lub dwie wartości, np.  background-position: top right; co oznacza wyrównanie do górnego prawego rogu.
+3.5. Rozmiar grafiki tła
+Ponownie rozszerz maksymalnie podgląd naszej strony. Grafika w tle jest wyśrodkowana a po bokach nie sięga do krawędzi przeglądarki.
+
+Za pomocą background-size możemy wpłynąć na rozmiar grafiki w tle. Domyślnie ma ona 100%, ale jeśli nadamy tej właściwości np. wartość 150% (1,5 razy większa), być może wypełni nasz baner na stronie.
+
+Zamiast zgadywać o ile % powiększyć nasze zdjęcie, możemy omawianej właściwości nadać wartość cover, która tak automatycznie powiększy zdjęcie w tle o tyle, aby pokryć cały element, w którym się znajduje.
+3.6. Właściwość background-attachment
+Poznaj właściwość background-attachment (domyślna wartość scroll). Jesli nadasz jej wartość fixed, to przy przewijaniu strony tło będzie zawsze w tym samym miejscu
+3.7. background z wieloma wartościami
+Odnośnie tła elementu, w CSS można używać tzw. skróconych deklaracji. Polega to na tym, że używamy właściwości background i po dwukropku podajemy kolejne wartości rozdzielone spacjami.
+
+Ogólna reguła ma taki wzór:
+background: color image position/size repeat attachment ;. Więc przykładowa deklaracja CSS może wyglądać tak:
+background: #fff url(plik.jpg) 0/cover no-repeat;. Taki zapis jednej właściwości nadaje od razu białe tło, grafikę w tle, które się nie powtarza i jest rozciągnięta na całość kontenera. Tym samym zastępujemy pisanie kilku właściwości tła tą jedną.
+
+PS. Jeśli chcemy w takiej skróconej deklaracji podać cover to musimy napisać 0/cover, aby podać również pozycję zdjęcia (zero). Należy także pilnować kolejności wartości w skróconej deklaracji, jak wyżej, ale nie musimy podawać wszystkich.
+4.1. Cieniowanie tekstu
+Czasami tekst będący na grafice może być słabo czytelny. Dodając mu cień, możemy zwiększyć jego czytelność "odcinając" go wizualnie cieniem od tła.
+
+Aby nadać cień tekstowi, używamy właściwości w takiej konstrukcji zapisu: text-shadow: X Y blur color;.
+
+Wymienione wartości mają takie znaczenie:
+X - odpowiada za przesunięcie cienia w osi poziomej (w prawo),
+Y - przesuniecie względem osi pionowej (w dół),
+blur (ang. rozmycie) - określa stopień rozmycia cienia (opcjonalny parametr, którego nie musimy dodawać),
+color - determinuje kolor cienia, mogą być użyte zarówno nazwy kolorów jak i zapis hexadecymalny czy rgb.
+
+Przykład:
+text-shadow: 2px 2px 5px #000.
+4.2. Cieniowanie elementów
+Cień możemy także nadawać elementom blokowym w HTML. Mamy możliwość w ten sposób nadać efekt przestrzenności.
+
+Podobnie jak dla cieniowania tekstu, konstrukcja właściwości cienia dla elementu wygląda tak:
+box-shadow: X Y blur color;.
+
+Także wartości mają takie same znaczenie. Przykładowy kod: 
+box-shadow: 2px 2px 5px #000;.
+4.3. Efekt karty
+Dość popularna ostatnio praktyką przy projektowaniu stron, jest nadanie cienia głównemu elementowi, tak by wyglądał jak kartka papieru położona na tle strony.
+
+Elementy cieniowane są z każdej strony, tyle że ustawienie przesunięcia X oraz Y sprawia, że widzimy cień zazwyczaj na dole i po prawej stronie elementu. 
+
+Natomiast rozmycie działa w każdą stronę, więc użycie wysokiej wartości dla trzeciego parametru, da nam efekt lekkiej poświaty z każdej strony.
+4.4. Przeźroczystość
+Za pomocą CSS możemy także ustawić elementom HTML półprzeźroczystość za pomocą właściwości opacity. Może ona przyjmować wartość od 0 do 1 (0 oznacza całkowitą przezroczystość). Np. opacity: 0.5;.
+
+Wadą tej właściwości jest to, że nadaje ona przeźroczystość także elementom potomnym. Efekt widzisz w podglądzie dla głównego napisu.
+
+Co jeśli chcemy aby tło napisu miało przeźroczystość, a napis nie? (aby był wyraźny) Można ustawić z wartością koloru rgba(0, 0, 0, 0.5) gdzie 3 pierwsze parametry po przecinkach określają kolor (tu: czarny), a ostatni przeźroczystość.
+5.1. Wprowadzenie do pseudoklas
+Elementy HTML, w zależności od działań użytkownika, z pomocą CSS, mogą zmienić swój wygląd. Służą do tego tzw. pseudoklasy w CSS.
+
+Pseudoklasa pozwala określić wygląd elementu, zależnie od tego w jakim STANIE się znajduje lub jaką akcję na nim wykonano.
+
+Konstrukcja reguły z pseudoklasą wygląda tak:
+.klasa-lub-tag:stanpseudoklasy {właściwości wyglądu dla takiego stanu}
+
+Np. reguła a:hover {color: green;} zmieniała kolor kolor linków na zielony po najechaniu na nie kursorem.
+
+5.2. Hover
+Hover jest stanem elementu, który występuje po najechaniu na niego kursorem. Dla takiego stanu możemy przypisać danemu elementowi zupełnie inne właściwości wyglądu.
+
+Stan hover w CSS stylujemy za pomocą tzw. pseudoklasy :hover.
+
+W podglądzie i CSS zobaczysz przykład zmiany koloru tła po na jechaniu na menu dla .nav a:hover (ostatnia reguła).
+
+5.3. Active
+Stan active występuje w momencie, w którym przytrzymujemy na danym elemencie HTML lewy przycisk myszki. Często wykorzystuje się go przy tworzeniu przycisków, żeby zasygnalizować, że zareagował on na kliknięcie.
+
+Stylujemy tak samo jak w przypadku hovera, za pomocą pseudo-klasy :active.
+5.4. Focus
+Focus (ang. skupienie) - ten stan jest często wykorzystywany w przypadku formularzy, zwłaszcza tych rozbudowanych, gdzie za jego pomocą odróżniamy aktywne pole od pozostałych. Dzięki temu użytkownik widzi, które pole aktualnie wypełnia.
+
+Przykładowy selektor: .klasa:focus.
+
+W podglądzie widzisz formularz z kilkoma polami do wprowadzania tekstu. Każde pole ma szarą ramkę i szary tekst.
+
+Chcemy wyróżnić pole, w którym aktualnie znajduje się nasz kursor, aby użytkownik skupił się na tym konkretnym polu.
+
+6.1. Opis właściwości 'overflow'
+Tworząc stronę, zawierającą sporą ilość treści lub elementów, możemy natrafić na problem z elementami HTML, których treść wystaje poza przeznaczoną dla nich przestrzeń. 
+
+Często dzieje się tak gdy mamy kontener HTML o określonych wymiarach i wrzucimy do niego więcej tekstu niż jest w stanie pomieścić. 
+
+O tym co przeglądarka ma zrobić z tym nadmiarem zawartości, decyduje właściwość overflow.
+
+Przyjmuje ona następujące wartości:
+- visible jest wartością domyślną, to co wystaje poza element jest widoczne,
+- hidden to co wystaje będzie niewidoczne i nie będzie miało wpływu na pozostałe elementy,
+- scroll to co wystaje jest widoczne i dodaje się pasek przewijania do każdej osi, nawet gdy nie jest potrzebny,
+- auto również dodaje się pasek przewijania dla wystającej treści, ale tylko wtedy gdy jest on potrzebny.
+
+W podglądzie zobaczysz przykłady użycia poszczególnych wartości.
+
+6.2. Overflow-y
+Możemy także decydować o tym, które przewijanie (scroll) w danym kontenerze ma się pojawiać. Czy tylko pionowe, czy też poprzeczne, czy oba... która oś, X czy Y?
+
+overflow-x przyjmuje takie same wartości jak overflow i odpowiada za poziome przewijanie.
+overflow-y jak wyżej, tyle że odpowiada za oś pionową.
+
+Wyżej wymienione mogą się przydać np. gdy mamy "na sztywno" określoną wysokość lub szerokość kontenera. Jeśli wysokość to decydujemy co należy zrobić z nadmiarem zawartości w pionie. Czy pionowy scroll ma być widoczny, czy ukryty?
+
+6.3. Overflow-x
+Overflow-x przydaje się, gdy treść danego kontenera HTML jest szersza niż jego rozmiary, a zmodyfikowanie jej nie wchodzi w grę.
+
+Załóżmy, że masz tabelę, która ma 20 kolumn. Na ekranie zmieści się np. 15. Co wtedy? 
+
+W tym momencie z pomocą przychodzi overflow-x, dzięki któremu możesz poprzecznie przewijać zawartość kontenera i nie ma to wpływu na pozostałe elementy strony.
+7.1. Wprowadzenie do jednostek
+Większość właściwości w CSS, przyjmuje wartość liczbową. Niezależnie od tego czy określasz wysokość elementu, rozmiar czcionki czy parametry pozycji, zawsze określasz wartości liczbową oraz jednostkę miary.
+
+Najczęstsze jednostki miar:
+- px - najpopularniejszy jednostka, określająca wielkość w pikselach, np. dla monitora komputera,
+- % - procentowa wartość jest zależna od kontekstu, np. szerokości nadrzędnego kontenera (rodzica),
+- em - jest mnożnikiem aktualnego rozmiaru elementu nadrzędnego,
+- rem - bazuje na podstawowym rozmiarze czcionki strony (16px domyślnie lub takim jaki jest przypisane dla tagu HTML)
+- vw - bazuje na szerokości okna (Viewport Width) 1vw = 1/100 szerokości okna,
+- vh - bazuje na wysokości okna (Viewport Height) 1vh = 1/100 wysokości okna.
+
+Możesz też zwęzić podgląd i zobaczyć jak zachowują się elastyczne jednostki typu vw lub %.
+7.2. Procenty i piksele
+Piksele (px) należą do "sztywnych" (bezwzględnych) jednostek. Wartość podana w nich będzie zawsze taka sama niezależnie od kontekstu. Używane są wtedy, gdy potrzebujemy pewności, że dana wartość zawsze i w każdych warunkach będzie taka sama. 
+
+Procenty (%) są jednostką elastyczną, jeżeli zastosujemy ją przy określaniu szerokości elementu, to będzie ona zależna od tego ile ma dostępnego miejsca, która daje jej zawierający ją kontener.
+
+Wykonaj zadania i przekonaj się jak to wygląda w praktyce.
+
+7.3. Relatywnie do rozmiaru czcionki
+Poniższe jednostki nie wskazują wprost rozmiaru, ale określają na podstawie relacji do innych elementów, czyli są relatywne:
+
+- em jest jednostką określającą wartość względem rozmiaru czcionki elementu nadrzędnego. Jeżeli ustawisz rozmiar czcionki elementu nadrzędnego na 20px a rozmiar czcionki elementu potomnego na 2em, to po przeliczeniu rozmiar czcionki będzie wynosił 40px (2em = 2 x 20px),
+
+- rem jest analogicznie działającą jednostką, tyle że odnosi się do rozmiaru czcionki całej strony (rozmiaru przypisanego do tagu <html>). Domyślnie 1rem = 16px.
+7.4. Zależne od okna
+Jednostki relatywne do rozmiarów okna są bardzo przydatne przy tworzeniu szkieletów strony, w których wymiary mają być wyliczone co do piksela (przykład zobaczysz w następnym ćwiczeniu). Jednak nie jest to ich jedyne zastosowanie. Stosujemy je głównie tam, gdzie % nie zdają egzaminu.
+
+Jednostki:
+- vh jest zależna od wysokości okna (viewport height) 1vh = 1/100 wysokości okna,
+- vw zależna od szerokości okna (viewport width), analogicznie 100vw = cała szerokość okna.
+
+7.5. Dynamiczne wyliczanie wartości
+Funkcja calc() pozwala wykonywać podstawowe działania arytmetyczne. Wystarczy, że w nawiasach zapiszemy działanie, na przykład width: calc(100px - 75px); zwróci wartość 25px.
+
+Zwróć uwagę na spacje w konstrukcji funkcji calc(). Pomiędzy liczbami i znakiem działania matematycznego, muszą być zawsze spacje!
+8.1. Deklaracja czterowartościowa
+Pamiętasz, jak w lekcji o tłach użyliśmy właściwości border z kilkoma wartościami? (np.: 'solid 1px grey') To był właśnie przykład skróconej deklaracji CSS. Jednak ta nazwa, dla niektórych właściwości CSS, odnosi się też do innej kwestii: kierunku podania wartości.
+
+Nieraz jest tak, że potrzebujesz zadeklarować różne wartości dla np. paddingów z różnych stron danego elementu.
+
+Jeśli chcesz, żeby górny padding wynosił 10 pikseli, prawy 10 pikseli i dolny 20 pikseli, mógłbyś to osiągnąć za pomocą trzech linii:
+padding-top: 10px;
+padding-right: 10px;
+padding-bottom: 20px;
+ale też za pomocą jednej: 
+padding: 10px 10px 20px 0;
+
+Jeśli mamy 4 wartości, to kierujemy się zasadą zegara:
+top -> right -> bottom -> left
+Czyli pierwsza wartość odnosi się do górnej krawędzi, druga do prawej, trzecia do dolnej, czwarta do lewej.
+
+Zarówno tę, jak i 2 następne skrócone deklaracje, które poznamy w następnych ćwiczeniach możemy używać dla takich właściwości jak: margin,  padding, czy border-radius.
+
+8.2. Deklaracja dwuwartościowa
+Jeśli w skróconej deklaracji we właściwości mamy podane 2 wartości, to kierujemy się zasadą: top&bottom right&left,
+czyli pierwsza wartość odnosi się do kierunku górnej i dolnej krawędzi, a druga do prawej i lewej.
+
+Przykład: 
+margin: 20px 40px;
+Margines górny i dolny wyniesie 20 pikseli, natomiast prawy i lewy 40 pikseli.
+
+8.3. Deklaracja trójwartościowa
+Jeśli mamy 3 wartości, to kierujemy się zasadą:
+top right&left bottom,
+czyli pierwsza wartośc odnosi się do kierunku górnego, druga do prawego i lewego, a trzecia do dolnego. 
+
+Przykład: 
+padding: 20px 30px 40px;
+Margines górny wyniesie 20 pikseli, prawy i lewy 30 pikseli, a dolny 40 pikseli.
+
+9.1. Szkielet HTML
+Naszym pierwszym krokiem w budowie strony wizytówki będzie stworzenie struktury dokumentu HTML. 
+
+Stworzymy dwa główne kontenery oraz wypełnimy je potrzebnymi tagami. Jeden będzie służył jako pojemnik na tekst, nagłówek i przycisk, a drugi będzie zawierał treść strony.
+
+9.2. Szkielet HTML - ciąg dalszy
+Zaczęliśmy już pracę nad strukturą HTML naszej wizytówki, pora dopiąć wszystko na ostatni guzik i upewnić się, że mamy wszystkie potrzebne elementy, żebyśmy mogli zająć się już samym stylowaniem :) 
+
+Dodamy stronie treść składającą się z nagłówków, ikon i tekstu opisującego wybrane przez nas tematy oraz stworzymy ikony dzięki Font Awesome.
+
+W tym ćwiczeniu kończymy zabawę ze strukturą. Za chwilę przejdziemy do nadawania jej odpowiednich właściwości :)
+
+9.3. Style dla nagłówków i hero
+Podczas tego etapu ustalimy kolor tła dla body i wygląd czcionki dla nagłówków. Użyjemy do tego zaimportowanej w pliku style.css czcionki Lora. 
+
+Przy okazji zajmiemy się nadaniem odpowiednich właściwości elementowi o klasie hero, który służy za kontener dla części powitalnej naszej strony.
+
+9.4. Stylowanie hero-content
+Następnym krokiem będzie ostylowanie elementu hero-content. Nadamy mu odpowiednie właściwości, dzięki którym będzie wyglądał jak popularne elementy powitalne stron. Od teraz będziesz wiedział jak zostały wykonane!
+
+9.5. Stylowanie przycisku w hero-content
+Ostatnim elementem związanym z hero-content, który potrzebuje jeszcze trochę kodu jest button. Sprawimy, że będzie wyglądał adekwatnie do swojego przeznaczenia i będzie zachęcał użytkowników do kliknięcia w niego.Oczywiście nie obejdzie się też bez efektu najechania kursorem, :hover.
+
+9.6. Stylowanie klasy content
+Ostatnim zadaniem w tej lekcji będzie ostylowanie elementu o klasie content razem z elementami, które zawiera oraz zmiana zachowania ikony po najechaniu na nią kursorem (:hover).
+
+

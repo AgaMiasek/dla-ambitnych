@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Open-sans', sans-serif;
+	width: 100%;
 	
 }
 .row:before,
@@ -40,8 +41,14 @@ body {
 .col-offset-10 {margin-left: 83.33%;}
 .col-offset-11 {margin-left: 91.66%;}
 
-
-
+@media(max-width: 768px) {
+		
+	
+	
+}
+section {
+	height: auto;
+}
 .hero {
 	
 	width: 100%;
@@ -90,10 +97,10 @@ body {
 	height:100%;
 	width: 40%;
 }
-.hero .vertical {
+.hero > .vertical {
 	position: absolute;
 	top: 450px;
-	left: -50px;
+	left: 50px;
 	transform: rotate(270deg);
 	text-transform: uppercase;
 	color: #fff;
@@ -102,7 +109,7 @@ body {
 .text {
 	font-size: 14px;
 	color: #67676d;
-	padding: 50px auto;
+	position: relative;
 	
 }
 .text h2 {
@@ -119,10 +126,10 @@ body {
 	font-size: 16px;
 	padding-left: 20px;
 }
-.text .vertical {
+.text > .vertical {
 	position: absolute;
-	top: 150px;
-	left: -50px;
+	bottom: 200px;
+	left: 50px;
 	transform: rotate(270deg);
 	text-transform: uppercase;
 }
@@ -142,7 +149,6 @@ body {
 	color: #fff;
 }
 .reasons p {
-	padding: auto 20px;
 }
 .gallery {
 	height: 600px;
@@ -172,7 +178,7 @@ body {
 	background-size: cover;
 	height: 300px;
 }
- .signature {
+.signature {
 	margin-top: 10%;
 }
 .gallery .purple {
@@ -185,6 +191,14 @@ body {
 }
 .boxes {
 	background-color: #e5e6eb;
+	position: relative;
+}
+.boxes > .vertical {
+	position: absolute;
+	bottom: 200px;
+	left: 50px;
+	transform: rotate(270deg);
+	text-transform: uppercase;
 }
 .boxes .box {
 	height: 320px;
@@ -194,6 +208,9 @@ body {
 }
 .boxes .box:hover {
 	background-color: #fff;
+	box-shadow: -webkit-box-shadow: 10px 10px 93px 5px rgba(204,204,204,0.83);
+	-moz-box-shadow: 10px 10px 93px 5px rgba(204,204,204,0.83);
+	box-shadow: 10px 10px 93px 5px rgba(204,204,204,0.83);
 }
 .boxes .box:hover .info {
 	background-color: violet;
@@ -257,8 +274,6 @@ footer input[type="email"] {
 	padding-left: 20px;
 	float: left;
 	border: none;
-
-
 }
 footer button {
 	width: 62px;
@@ -280,7 +295,106 @@ footer label {
 footer form {
 	margin-left: 50px;
 }
-@media (max-width: 450px) {
 
+@media(max-width: 768px) {
+
+	.col-s-1 {width: 8.33%;}
+	.col-s-2 {width: 16.66%;}
+	.col-s-3 {width: 25%;}
+	.col-s-4 {width: 33.33%;}
+	.col-s-5 {width: 41.66%;}
+	.col-s-6 {width: 50%;}
+	.col-s-7 {width: 58.33%;}
+	.col-s-8 {width: 66.66%;}
+	.col-s-9 {width: 75%;}
+	.col-s-10 {width: 83.33%;}
+	.col-s-11 {width: 91.66%;}
+	.col-s-12 {width: 100%;}
+
+	.container {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	.phone {
+		display: none;
+
+	}
+	.hero-up .phone {
+		display: none;
+	}
+	.hero .slogan {
+		padding: 25% 10px;
+	}
+	.hero .slogan .header-hero {
+		margin: 0 auto;
+		font-size: 55px;
+	}
+	.hero .slogan .subtitle {
+		font-size: 20px;
+	}
+	.hero .vertical {
+		transform: rotate(360deg);
+		position: absolute;
+		top: 25px;
+		left: 170px;
+	}
+	[class*="col-"] {
+	float: none;
+	padding: 5px;
+	}
+	.gallery {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: auto;
+		margin-top: 20px;
+	}
+	.gallery > .col-s-12 {
+		margin-top: -40px;
+	}
+	.signature {
+		padding-top: 50px;
+	}
+	.text > .vertical {
+		display: none;
+	}
+	.details h3 {
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+	.details p {
+		margin-top: 0;
+	}
+	.hero-middle slogan h2 {
+		font-size: 50px;
+		padding: 0;
+		margin: auto 10px;
+	}
 	
+	.reasons h2 {
+		padding: auto 10px;
+	}
+	.boxes .vertical {
+		display: none;
+	}
+	.boxes .box {
+		width: 300px;
+		height: 300px;
+		margin: 10px auto;
+
+	}
+	footer {
+		height: auto;
+		padding-bottom: 50px;
+	}
+	footer .row:first-child {
+		margin-left: 10px;
+	}
+	footer .row:last-child {
+		text-align: center;
+	}
+	footer form {
+		margin-left: 10px;
+	}
 }
